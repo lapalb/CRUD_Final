@@ -1,0 +1,69 @@
+<!-- Updated Employee -->
+<div ng-controller="viewController">
+
+<div class="jumbotron"  ng-show="upda">
+    <p style="margin-bottom: 0px" id="para"><b>Update Employee detail</b></p>
+    <div class="row">
+        <div class="col-sm-6"><label>Emp Id</label><input type="number" ng-model="empidu" class="form-control" data-toggle="tooltip" title="Only Number Allowed!" disabled></div>
+        <div class="col-sm-6"><label>Name</label><input type="text" ng-model="empnameu" class="form-control">   </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-6"><label> Salary</label><input type="number" ng-model="empsalaryu" class="form-control"></div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="sel1">Select Designation:</label>
+                <select class="form-control" ng-model="empdesu">
+                    <option>Software Engineer</option>
+                    <option>Senior Software Engineer</option>
+                    <option>Technical Leader</option>
+                    <option>Principal Engineer</option>
+                    <option>Distinguished Engineer</option>
+                    <option>Manager</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-success" ng-click="upEmp()"  style="float: right">Submit</button>
+    </div>
+</div>
+
+
+<input class="form-control"  type="text" placeholder="Search.." ng-show="emp.length!=0" ng-model="myInput">
+    <br>
+    <button type="button" ng-show="true" class="btn btn-success" ng-click="delSel()"  style="float: right">Delete Selected</button>
+    <!-- Table Start: Displays Employee Info -->
+    <div class="jumbotron" ng-if="emp.length!=0">
+        <table class="table table-responsive table-condensed table-striped display nowrap" style="background:#f2dede" id="myt">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Employee Id</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Designation</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="myTable" >
+                <tr ng-repeat="x in filteredemp | filter:myInput">
+                    <td><input type="checkbox" ng-model="ar[$index+ 10*(pagination.currentPage - 1)] "></td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.salary}}</td>
+                    <td>{{x.designation}}</td>
+                    <td>
+                        <span class="glyphicon glyphicon-pencil" ng-click="upd($index)"></span>
+                        <span class="glyphicon glyphicon-trash" ng-click="del($index)"></span>
+                    </td>
+                 </tr>
+
+            </tbody>
+        </table>
+        <ul uib-pagination boundary-links="true" total-items="emp.length" ng-model="pagination.currentPage" ng-change="pageChanged()"></ul>
+        <p>{{emp.length}} Entries</p>
+     <!--   <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize"  data-boundary-links="true"></div>-->
+    </div>
+</div>

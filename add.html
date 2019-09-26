@@ -1,0 +1,41 @@
+ <!-- Add Employee -->
+ <div ng-controller="addController">
+    <div class="jumbotron">
+        <p id="para" style="margin-bottom: 0"><b>Add Employee detail</b></p>
+        <div class="row">
+
+            <div class="col-sm-6"><label>Emp Id</label><input type="number" ng-model="empid" class="form-control" data-toggle="tooltip" title="Only Number Allowed!" ng-required="required"></div>
+            <div class="col-sm-6"><label>Name</label><input type="text" ng-model="empname" class="form-control" required>   </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6"><label> Salary (In &#8377)</label>
+                <input type="number" ng-model="empsalary" class="form-control" required>
+                <span ng-show="empsalary!=undefined" class="label label-danger">Confirm with HR before entering</span>
+            </div>
+            <div class="col-sm-6">
+            <div class="form-group">
+                <label for="sel1">Select Designation:</label>
+                <select class="form-control" ng-model="empdes">
+                    <option>Software Engineer</option>
+                    <option>Senior Software Engineer</option>
+                    <option>Technical Leader</option>
+                    <option>Principal Engineer</option>
+                    <option>Distinguished Engineer</option>
+                    <option>Manager</option>
+                    <option></option>
+                </select>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-success" ng-click="addEmp()"id ="adds" style="float: right">Submit</button>
+        </div>
+
+    </div>
+
+ <div class="alert alert-success" ng-show="alertshow">
+     <strong>Congrats!</strong> New Row Added
+ </div>
+
+ </div>

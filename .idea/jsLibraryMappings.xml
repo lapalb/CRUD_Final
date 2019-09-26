@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{angular, angular-animate, angular-route, angular-sanitize, angular-touch, bootstrap, jquery-3.3.1, ui-bootstrap-tpls-2.5.0}" />
+  </component>
+</project>
